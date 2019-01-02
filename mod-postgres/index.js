@@ -26,7 +26,9 @@ const readData = async(query, resparam)=>{
 
 console.log("startig ...");
 readData('SELECT NOW()', 'now').then((resolve)=>{
-    console.log("Results found", JSON.stringify(resolve));
+    console.log("Results1 found", JSON.stringify(resolve));
+}).readData('SELECT NOW()', 'now').then((resolve)=>{
+    console.log("Results2 found", JSON.stringify(resolve));
 }).catch((err)=>{
     console.log("Catch ERROR",err);
 });
