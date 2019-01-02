@@ -23,21 +23,27 @@ const readData = async(query, resparam)=>{
     
 }
 
+const closepool = async() => {
+    await pool.end();
+    console.log("POOL CLOSED !!");
+}
+
 console.log("startig ...");
+//This is also a promise chaining example. 
 readData('SELECT NOW()', 'now').then((resolve)=>{
     console.log("Results1 found", JSON.stringify(resolve));
-    return readData('SELECT NOW()', 'now');
-}).then((resolve)=>{
+    return readData('SELECT NOW()', 'now'); //Skip this if chaining not required.
+}).then((resolve)=>{ //Skip this if chaining not required.
     console.log("Results2 found", JSON.stringify(resolve));
-
-}).catch((err)=>{
+    return closepool();
+    
+}).then((resolved)=>{
+    console.log("POOL CLOSED AND Finalized");
+})
+.catch((err)=>{
     console.log("Catch ERROR",err);
+    closepool();
 });
 
-// readData('SELECT NOW()', 'now').then((resolve)=>{
-//     console.log("Results2 found", JSON.stringify(resolve));
-// }).catch((err)=>{
-//     console.log("Catch ERROR",err);
-// });
-//console.log("Found results" +results);
+
 
