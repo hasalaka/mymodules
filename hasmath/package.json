@@ -1,0 +1,14 @@
+{
+  "name": "hasmath",
+  "version": "1.0.0",
+  "description": "maths test module",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "math": "0.0.3"
+  },
+  "author": "Hasalaka Waravita",
+  "license": "ISC"
+}
