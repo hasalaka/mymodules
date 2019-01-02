@@ -1,15 +1,15 @@
 const Pool = require('pg').Pool
 const pool = new Pool();
 
-const readData = async()=>{
+const readData = async(query, resparam)=>{
     let data;
     console.log("f1");
     try{
-        let dbReesult =  await pool.query('SELECT NOW()');
+        let dbReesult =  await pool.query(query);
         console.log('XXXXXXXXXXXX' + dbReesult)
         
         if(dbReesult){
-            data = dbReesult.rows[0]['now'];
+            data = dbReesult.rows[0][resparam];
         }
         console.log("f2");
     }catch(err){
@@ -25,7 +25,7 @@ const readData = async()=>{
 }
 
 console.log("startig ...");
-let results = readData().then((resolve)=>{
+readData('SELECT NOW()', 'now').then((resolve)=>{
     console.log("Results found", JSON.stringify(resolve));
 }).catch((err)=>{
     console.log("Catch ERROR",err);
