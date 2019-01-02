@@ -1,7 +1,7 @@
 const Pool = require('pg').Pool
 const pool = new Pool();
 
-const readtime = async()=>{
+const readData = async()=>{
     let data;
     console.log("f1");
     try{
@@ -25,7 +25,7 @@ const readtime = async()=>{
 }
 
 console.log("startig ...");
-let results = readtime().then((resolve)=>{
+let results = readData().then((resolve)=>{
     console.log("Results found", JSON.stringify(resolve));
 }).catch((err)=>{
     console.log("Catch ERROR",err);
