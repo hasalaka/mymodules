@@ -1,0 +1,28 @@
+{
+  "name": "mytestmodules",
+  "version": "1.0.0",
+  "description": "Math modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node start.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasalaka/mymodules.git"
+  },
+  "author": "Hasalaka Waravita",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hasalaka/mymodules/issues"
+  },
+  "homepage": "https://github.com/hasalaka/mymodules#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "hasmath": "^1.0.1"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0"
+  }
+}
