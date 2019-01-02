@@ -6,7 +6,6 @@ const readData = async(query, resparam)=>{
     console.log("f1");
     try{
         let dbReesult =  await pool.query(query);
-        console.log('XXXXXXXXXXXX' + dbReesult)
         
         if(dbReesult){
             data = dbReesult.rows[0][resparam];
@@ -17,7 +16,7 @@ const readData = async(query, resparam)=>{
         return await Promise.reject(new Error("Whoops!"));
     }finally{
         console.log("f3");
-        await pool.end();
+        //await pool.end();
     }
     
     return data;
@@ -27,7 +26,11 @@ const readData = async(query, resparam)=>{
 console.log("startig ...");
 readData('SELECT NOW()', 'now').then((resolve)=>{
     console.log("Results1 found", JSON.stringify(resolve));
-}).readData('SELECT NOW()', 'now').then((resolve)=>{
+}).catch((err)=>{
+    console.log("Catch ERROR",err);
+});
+
+readData('SELECT NOW()', 'now').then((resolve)=>{
     console.log("Results2 found", JSON.stringify(resolve));
 }).catch((err)=>{
     console.log("Catch ERROR",err);
